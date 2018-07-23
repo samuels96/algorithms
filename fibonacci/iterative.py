@@ -5,6 +5,13 @@ def fib(n):
         nums = [nums[-1],nums[-2]+nums[-1]]
     return nums[0]
 
+def fib(n):
+    first = 0
+    second = 1
+    for x in range(n):
+        first,second = second,first + second
+    return first
+
 # for x in range(30):
 #     print(fib(x))
 #_____________________

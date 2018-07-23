@@ -136,3 +136,8 @@ class BinaryTree():
                 parent.left = next.right
             else:
                 parent.right = next.right
+
+a = [1,3,5,7,8,9]
+t = BinaryTree(4)
+t.sa(a)
+t.inorder_stack()
