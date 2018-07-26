@@ -4,6 +4,8 @@ class BinaryTree():
         self.left = None
         self.right = None
 
+
+
 #Inserts at left side if node < parent or at right side if node > parent, unbalanced insertion
     def insert(self,data):
         if self.data is None: self.data = BinaryTree(data)
@@ -137,7 +139,17 @@ class BinaryTree():
             else:
                 parent.right = next.right
 
-a = [1,3,5,7,8,9]
-t = BinaryTree(4)
-t.sa(a)
-t.inorder_stack()
+#max_sum_path is a function to print out the path of maximum sums between two leafs, height is a helper method to return highest sum path for each side.
+    def height(self,root):
+        return max(root.data+self.height(root.left),root.data+self.height(root.right)) if root else 0
+
+    def max_sum_path(self,root):
+        if root is None: return 0
+
+        lh = self.height(root.left)
+        rh = self.height(root.right)
+
+        ld = self.max_sum_path(root.left)
+        rd = self.max_sum_path(root.right)
+
+        return max(lh+rh+root.data,max(ld,rd))
