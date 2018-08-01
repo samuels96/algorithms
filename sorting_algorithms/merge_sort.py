@@ -1,6 +1,7 @@
 #Merge sort
 #Time complexity: O(n log(n))
 #Space compplexity: O(n)
+
 def merge_sort(arr):
     def merge(a,b):
         res = []
