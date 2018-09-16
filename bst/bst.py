@@ -24,7 +24,6 @@ class BinaryTree():
 #Preorder traversal using recursion (ROOT-LEFT-RIGHT)
     def preorder_recursion(self):
         if self.data is None: return False
-        print(self.data)
         if self.left:
             self.left.preorder_recursion()
         if self.right:
@@ -37,7 +36,6 @@ class BinaryTree():
         while stack:
             node = stack.pop()
             if node:
-                print(node.data)
                 stack.append(node.right)
                 stack.append(node.left)
 
@@ -46,7 +44,6 @@ class BinaryTree():
         if self.data is None: return False
         if self.left:
             self.left.inorder_recursion()
-        print(self.data)
         if self.right:
             self.right.inorder_recursion()
 
@@ -60,7 +57,6 @@ class BinaryTree():
                 self = self.left
             else:
                 node = stack.pop()
-                print(node.data)
                 self = node.right
 
 #Postorder traversal using reursion (LEFT-RIGHT-ROOT)
@@ -70,7 +66,6 @@ class BinaryTree():
             self.left.postorder_recursion()
         if self.right:
             self.right.postorder_recursion()
-        print(self.data)
 
 #Returns given node and it's parent ( used as a helper function for remove )
     def search(self,data,parent=None):
@@ -139,7 +134,7 @@ class BinaryTree():
             else:
                 parent.right = next.right
 
-#max_sum_path is a function to print out the path of maximum sums between two leafs, height is a helper method to return highest sum path for each side.
+#max_sum_path is a function that reunts the path of maximum sums between two leafs, height is a helper method to return highest sum path for each side.
     def height(self,root):
         return max(root.data+self.height(root.left),root.data+self.height(root.right)) if root else 0
 
